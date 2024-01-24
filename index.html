@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <script>
+      (function (a, t, i) { var e = "MSEI"; var s = "Analytics"; var o = e + "queue"; a[o] = a[o] || []; var r = a[e] || function (n) { var t = {}; t[s] = {}; function e(e) { while (e.length) { var r = e.pop(); t[s][r] = function (e) { return function () { a[o].push([e, n, arguments]) } }(r) } } var r = "track"; var i = "set"; e([r + "Event", r + "View", r + "Action", i + "Property", i + "User", "initialize", "teardown"]); return t }(i.name); var n = i.name; if (!a[e]) { a[n] = r[s]; a[o].push(["new", n]); setTimeout(function () { var e = "script"; var r = t.createElement(e); r.async = 1; r.src = i.src; var n = t.getElementsByTagName(e)[0]; n.parentNode.insertBefore(r, n) }, 1) } else { a[n] = new r[s] } if (i.user) { a[n].setUser(i.user) } if (i.props) { for (var c in i.props) { a[n].setProperty(c, i.props[c]) } } a[n].initialize(i.cfg) })(window, document, {
+           src: "https://download.pi.dynamics.com/sdk/web/msei-0.js",
+           name: "msdynmkt",
+           cfg: {
+               ingestionKey:"c1572fa7144c49b3a2c016dea23978da-645bc635-a28e-4414-ab4c-da8163fcabf0-7262"
+           }
+       });
+   </script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      <h1 class="title">Hello World! </h1>
+      <button class="button3 button1">Green</button>
+      <button class="button3 button2">Blue</button>
+      <p id="currentTime"></p>
+      <script src="script.js"></script>
+
+      <h2>HTML Forms</h2>
+
+      <form form="Login_form" onsubmit="submit_form()">  
+        <h4> USERNAME</h4>  
+        <input type="text" placeholder="Enter your email id"/>  
+        <h4> PASSWORD</h4>  
+        <input type="password" placeholder="Enter your password"/></br></br>  
+        <input type="submit" value="Login"/>  
+        <input type="button" value="SignUp" onClick="create()"/>  
+        </form>  
+        <script type="text/javascript">  
+        function submit_form(){  
+           alert("Login successfully");  
+           track_msdynmkt_testtriggerone_150025623()
+        }  
+
+        function track_msdynmkt_testtriggerone_150025623() {
+          window["msdynmkt"].setUser({ authId: "mugdha.mundhe@microsoft.com"});   // ID, e-mail or phone number - see instructions
+          window["msdynmkt"].trackEvent({
+            name: "msdynmkt_testtriggerone_150025623", //Trigger title: TestTriggerOne
+            ingestionKey : "c1572fa7144c49b3a2c016dea23978da-645bc635-a28e-4414-ab4c-da8163fcabf0-7262",
+            version: "1.0.0" ,
+            properties: {
+          "numbers" : 123456789,
+          "bindingid" : "Test trigger"
+          }
+          });
+        }
+
+        function create(){  
+           window.location="signup.html";  
+        }  
+        </script>  
+  </body>
+</html>
